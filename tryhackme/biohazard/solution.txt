@@ -1,0 +1,123 @@
+First of all connect to tryhackme vpn and spawn the machine :)
+
+then do a network scan on the target and list the open ports,we will find that http is opened,so we will open the webpage "<targetip>:80"
+
+1.Introduction:
+-----------------
+
+[*] no answer is needed for the first question 
+
+[*] refer to the "nmap scan"/"rustscan",for the second answer
+ 
+[*] read the paragraph to get the third answer
+
+
+then click the embedded link of the webpage to go another page,you wont find anything interest in the webpage,but don't to view the page source! 
+after getting something useful in the page source,open the link "targetip/useful_directory"
+
+========================================================================================================================================================
+
+2. The Mansion:
+----------------
+
+[*] just dare to take the emblem to get something interesting,then do accordingly,sure you gonna fall into the rabbit hole!
+
+check the page source,you will get a cipher,use "cyberchef" to decode that you will get a hint to get into another directory "<targetip>/new_directory"
+
+[*] click the embedded link to get the next flag!
+
+also don't forget to read the para to get the next hint of the challenge
+check the embedded link 
+explore other rooms
+enter the lockpick to get into the room,then click on READ to get the note
+
+[*] use cyberchef to decode the music note and get the next flag
+
+then submit you new flag under "play the piano" to get into another room
+
+[*] take the gold emblem to get the gold emblem flag
+
+
+[*] go to "<targetip>/diningRoom/" put the gold emblem flag and you will get a viginere cipher and the key is the name we got from secret bar room  
+"klfvg ks r wimgnd biz mpuiui ulg fiemok tqod. Xii jvmc tbkg ks tempgf tyi_hvgct_jljinf_kvc"(vigenere cipher) after decoding it visit the page ["<targetip>/diningRoom/got_after_decryption.html"] to get the flag
+
+
+then for the blue gem flag go to the next directory i.e, "/diningRoom2F"
+
+read the page source and get a long cipher,you can use "dcode.fr/cipher-identifier" to identify the cipher and then decode it to get it in plain text
+
+[*] do accordingly and to the said directory to get the blue gem flag (the said directoy <targetip>/diningRoom/file_got_after_decoding) 
+
+then get to the next directory "tigerStatusRoom" and enter the blue gen flag to get information about crest1
+then go the next directory "galleryRoom" and examine to get the info regarding crest2 
+similarly visit "/armorRoom" and enter the shield flag to get crest3 and visit "/attic" and enter the shield key to get the crest4 
+then add them and get the cipher text again decode it to get the ftp credentials.
+
+[*] we just got the ftp username
+[*] we just got the ftp password
+
+=============================================================================================================================================
+3. The guard house:
+--------------------
+It's  a Forensics Challenge!
+Now log into the FTP server:
+and get all the files into your device by typing "mget *"
+
+to decrypt the "gpg" file you need a password and that can be found from the images
+
+key1=use steghide to extract a text file from the 001-key.jpg [steghide --extract -sf 001-key.jpg (the password is '' )]
+key2=use exiftool to get the string from the 002-key.jpg [exiftool 002-key.jpg (we will get the string from the comment field)]
+key3=for the 003-key.jpg use foremost to extract the third key [foremost -i 003-key.jpg (unzip the zip file to get the third key)] 
+
+now: key=key1+key2+key3
+
+decrypt the key(which is base64 encoded) to get the pass and open the "gpg" file [gpg -d helmet_key.txt.gpg]
+and we get the helmet key
+
+[*] read the important.txt to get the answer
+[*] we used it for opening the "gpg" file
+[*] we just got it from the "gpg" file
+
+=================================================================================================================================================
+
+4.The Revisit
+--------------
+
+now open thoes doors which required the helmet flag (studyRoom and hiddenCloset)
+
+from study room we will get a file to download,download and extract the file to get the ssh username
+
+[*] ssh_username we just got
+[*] examine the wolf medal to get the ssh_password
+[*] read the paragraph of the closet room to get the answer
+
+read the MO disk 1 of the closet room  to get a cipher (use "dcode.fr/cipher-identifier" and decrypt it)
+
+========================================================================================================================================================
+
+5. Underground laboratory:
+---------------------------
+
+time to use the reverse shell <3
+
+"ssh ssh_username@<targetip>" and we already have the password
+
+do "ls -la"
+to see all the files including the hidden ones
+
+ ["find . -name chris.* 2>/dev/null" (you can use this command to find chris and get the answer)]
+
+[*] use can use the previous command or else you can get into every dir and find for chris
+[*] just follow the chris.txt
+[*] decode the cipher which we got from closet room using the key "albert" (we did it previously though)
+[*] just get into  home/weasker/ and read the "weasker_note.txt" for the answer
+
+now time to get root priviledges
+
+we dont find anything interesting in here,but we can get into weasker user since we have his username and password,just create a new ssh session login with the credentials 
+
+just do "sudo su" and enter the same password of weasker which we got before,he re-used the password and boom we are root
+
+[*] now just read the root.txt ("cat /root/root.txt")   
+  
+=============================================================================================================================================================================================
