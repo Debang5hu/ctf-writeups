@@ -1,3 +1,5 @@
+https://tryhackme.com/room/biohazard
+
 First of all connect to tryhackme vpn and spawn the machine :)
 
 then do a network scan on the target and list the open ports,we will find that http is opened,so we will open the webpage "<targetip>:80"
