@@ -1,0 +1,31 @@
+https://tryhackme.com/room/ohsint
+
+
+use exiftool to get the name/username and give a google search [inurl com && intile: username]
+else another method is there get the name by using exiftool and then use "sherlock" to find the 
+account [sherlock username]  
+
+[*] What is this user's avatar of?
+ =>  now check the avatar of the social media account [cat]
+
+[*] What city is this person in?
+ => use the BSSID and search it on "wigle.net" to get the city [London]
+
+[*] What is the SSID of the WAP he connected to?
+ => you can get it from "wigle.net" [unileverWIFI]
+
+[*] What is his personal email address?
+ => you can get it using "profil3r" tool else just check all the results came from the google dorking [owoodflint@gmail.com]
+
+
+[*] What site did you find his email address on?
+ => just the site name from where you got his email address is the answer [github]
+
+[*] Where has he gone on holiday?
+ => explore his wordpress site which we got after google dorking! [New York]
+
+[*] What is the person's password?
+ => check the page source and you gonna find a weird string and that's gonna be the password [pennYDr0pper.!]
+
+what i did for the last one is,I used gobuster to scan the hidden directory and got an interesting dir "/atom" i just opened it and got a file to download,after downloading I found a weird string and that came to be the password!
+Another way! In the wordpress site you can use 'ctrl+a' to highlight every text and you will find the password too (cause its been written in white color so it was not visible before highlighting). 
