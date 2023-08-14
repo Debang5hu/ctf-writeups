@@ -3,7 +3,7 @@ Raven1
 
 link: https://www.vulnhub.com/entry/raven-1,256/  
 
-download the machine and boot it in virtual box an configure it
+download the machine and boot it in virtual box and configure it
 
 Next step:  
 
@@ -57,7 +57,7 @@ accress the "wp-posts" table to get the 3rd flag(we will even find the 4th flag 
 
 ![flag3](https://github.com/Debang5hu/ctf-writeups/assets/114200360/961382ad-cd6f-4f22-814b-52ed1b1f32a1)
 
-then login in to steven's account,we see that python can be run with sudo permission,just exploit it to root the machine
+then login in to steven's account,we see that python can be run with sudo permission,just exploit it to root the machine  
 "sudo python -c "import os;os.system('/bin/bash')"" and we are root  
 "cat /root/flag4.*" to get the 4th flag   
 
