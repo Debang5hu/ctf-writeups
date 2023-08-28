@@ -19,7 +19,7 @@ since it have port 80 open,open it in a browser and navigate to "service page" a
 
 ![flag1](https://github.com/Debang5hu/ctf-writeups/assets/114200360/875cd155-086b-40e7-817f-739b89c34b5f)
 
-then run a gobuster scan or any other directory fuzzing tool to get its hidden directories "gonuster dir -u {url} -w {wordlists}"  
+then run a gobuster scan or any other directory fuzzing tool to get its hidden directories "gobuster dir -u {url} -w {wordlists}"  
 
 ![dir_fuzz](https://github.com/Debang5hu/ctf-writeups/assets/114200360/ad0c5be2-890a-4931-ab7b-6aee3b4ca106)
 
