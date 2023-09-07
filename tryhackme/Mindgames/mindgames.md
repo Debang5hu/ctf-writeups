@@ -57,13 +57,23 @@ Open Ports: 22,80
 
 we didn't find anything from ssh so lets access the http port(80)  
 
+![website](https://github.com/Debang5hu/ctf-writeups/assets/114200360/12cbe45e-6c13-4710-97cf-642639fc41e5)
+
+
 from the website we find 2 code of 'brainfuck' and one section where we can execute our code.  
 
 after decrypting the code we found the code to be of python  
 
+![python_code](https://github.com/Debang5hu/ctf-writeups/assets/114200360/ea5bd0c1-6db7-422e-8d54-1d331e32cd1c)
+
+
 so I tried to execute python code in the "Try before you buy" section but it didn't executed  
 
 then I converted the python reverse shell payload into brainfuck and then executed.  
+
+![python_to_brainfuck](https://github.com/Debang5hu/ctf-writeups/assets/114200360/6bddebc4-20fb-4eb3-ba7d-55b4dab2caba)  
+
+
 
 It got RCE vulnerability and we got the shell  
 
@@ -78,10 +88,15 @@ to get the user.txt
 ```
 cat /home/mindgames/user.txt 
 
-```  
+```
+![user_txt](https://github.com/Debang5hu/ctf-writeups/assets/114200360/bb11d5ed-fc9b-4b7a-902e-3bdbaf7968b1)
+
+
 
 
 To get the Root Shell  
+-------------------------  
+
 
 let’s try "sudo -l" to see if mindgames can run sudo:  
 
@@ -98,6 +113,9 @@ Openssl has the setuid cap.
 write an C program to exploit it  
 
 refer to <a href="https://www.openssl.org/blog/blog/2015/10/08/engine-building-lesson-1-a-minimum-useless-engine/"></a>  
+
+
+![exploit](https://github.com/Debang5hu/ctf-writeups/assets/114200360/9acc3e67-57fc-410b-9e82-1c5a1946108d)
 
 
 Now compile this c program  
