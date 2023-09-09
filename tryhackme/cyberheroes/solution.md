@@ -39,14 +39,19 @@ we found 2 open ports(22,80)
 
 Open the site in the browser  
 
+![Screenshot_2023-09-09_22-24-06](https://github.com/Debang5hu/ctf-writeups/assets/114200360/9f3dcf1e-1baa-4e97-9208-231a2a303654)
 
 Head to the login page  
 
+![login](https://github.com/Debang5hu/ctf-writeups/assets/114200360/2cb46026-67b1-4c09-a006-92fd5874f1b4)
 
 View the page source  
 
+![pagesource](https://github.com/Debang5hu/ctf-writeups/assets/114200360/ddca9dfa-1ab7-42bf-98e0-21a5012a14d7)
 
 from the "authenticate" function we get the username and password  
+
+![credentials](https://github.com/Debang5hu/ctf-writeups/assets/114200360/bc76ad99-038c-4d1c-9f61-023c1046192d)
 
 the "b" variable stores the password and it calls a function named "RevereString" which basically reverse the string,reverse "54321@terceSrepuS"  to get the password  
 
@@ -66,8 +71,4 @@ password="SuperSecret@12345"
 
 login with the credentials to get the flag!  
 
-
-
-
-
-
+![flag](https://github.com/Debang5hu/ctf-writeups/assets/114200360/f5a7ecf3-d8ac-417d-ad1a-19b289336313)
