@@ -1,0 +1,69 @@
+export IP="10.10.35.107"
+
+OS:windows
+Web Technology: IIS(server),wordpress(5.2),mysql,php
+=============================================================
+Nmap scan:
+
+Nmap scan report for 10.10.35.107
+Host is up (0.18s latency).
+Not shown: 998 filtered tcp ports (no-response)
+PORT     STATE SERVICE       VERSION
+80/tcp   open  http          Microsoft IIS httpd 10.0
+|_http-server-header: Microsoft-IIS/10.0
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_http-title: IIS Windows Server
+3389/tcp open  ms-wbt-server Microsoft Terminal Services
+|_ssl-date: 2023-10-18T16:10:22+00:00; 0s from scanner time.
+| rdp-ntlm-info: 
+|   Target_Name: RETROWEB
+|   NetBIOS_Domain_Name: RETROWEB
+|   NetBIOS_Computer_Name: RETROWEB
+|   DNS_Domain_Name: RetroWeb
+|   DNS_Computer_Name: RetroWeb
+|   Product_Version: 10.0.14393
+|_  System_Time: 2023-10-18T16:10:17+00:00
+| ssl-cert: Subject: commonName=RetroWeb
+| Not valid before: 2023-10-17T16:08:10
+|_Not valid after:  2024-04-17T16:08:10
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+
+
+| rdp-enum-encryption: 
+|   Security layer
+|     CredSSP (NLA): SUCCESS
+|     CredSSP with Early User Auth: SUCCESS
+|_    RDSTLS: SUCCESS
+
+
+
+===================================================================
+ports: 
+
+80: http 
+Dir/files to check: (.svn,robots.txt,.DS_STORE)
+
+3389: rdp 
+====================================================================
+directories:
+
+retro
+/wp-admin  (not configured properly)
+/xmlrpc.php
+=====================================================
+user: credentials
+
+wade : parzival
+======================================================
+
+Use xfreerdp with the credentials to get into the device (xfreerdp /u:wade /v:$IP )
+
+User.txt is present on the device's screen
+
+==================================================================
+Privilege Escalation:
+
+
+
