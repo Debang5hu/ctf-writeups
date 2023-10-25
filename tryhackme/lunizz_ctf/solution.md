@@ -98,6 +98,7 @@ It don't have anonymous login
 nc -nv $IP 4444
 ```  
 
+![rabbithole](https://github.com/Debang5hu/ctf-writeups/assets/114200360/7979d32f-9f9b-46d0-af8d-645c43746768)  
 
 It's a RABBIT HOLE  
 
@@ -130,11 +131,16 @@ explore the directories
 
 ## /instructions.txt  
 
+![instructions](https://github.com/Debang5hu/ctf-writeups/assets/114200360/2465a810-0def-45a6-bece-ae60505d75a6)  
 
-## /hidden  
 
+## /hidden   
+
+![hidden](https://github.com/Debang5hu/ctf-writeups/assets/114200360/7eb01454-f824-4c2d-a30f-378042acb63e)  
 
 ## /whatever  
+
+![whatever](https://github.com/Debang5hu/ctf-writeups/assets/114200360/41a15e42-2337-497e-a555-d928fd793bd4)  
 
 
 ----------------------------------------------------------------------------------------------------------------
@@ -201,13 +207,19 @@ reverse-shell cheatsheet: https://github.com/swisskyrepo/PayloadsAllTheThings/bl
 
 And BOOM we are in...   
 
+![iamin](https://github.com/Debang5hu/ctf-writeups/assets/114200360/471db536-922e-4345-9fba-5b1b13ad8d0a)  
+
+
 Now start enumerating:  
 
 lets see whether it have some active connections or not  
 
 ```
 netstat -tunlp
-```  
+```
+
+![enumerate](https://github.com/Debang5hu/ctf-writeups/assets/114200360/e3238e89-9331-42f5-9ea6-90e0444ea2d6)  
+
 
 we found that something was running in the localhost  
 
@@ -217,10 +229,15 @@ curl http://127.0.0.1:8080
 
 make a curl request to see what is running  
 
+![curlreq](https://github.com/Debang5hu/ctf-writeups/assets/114200360/c7bb190d-1d86-4545-8801-4b952942d56c)  
+
 we found something interesting but nothing got executed  
 
 Next,Navigating through the file system we found that 'proct' is the only directory owned by the user 'adam'  
 so let's get into it  
+
+![proct](https://github.com/Debang5hu/ctf-writeups/assets/114200360/c727fc76-6aa6-4b98-b3b8-bd2c77e3df8c)  
+
 
 we found another directory just get into it,then we found a python script,that basically decrypts some text using  
 *bcrypt* algorithm  
@@ -242,7 +259,7 @@ next,finding nothing useful, I got into the 'Desktop' directory,then '.archive' 
 
 Found an interesting txt file 'to_my_best_friend_adam.txt'  
 
-read the file to get the clue of the password of the user 'mason'  
+open the link and read the file to get the clue of the password of the user 'mason'  
 
 --------------------------------------------------------------------------------------------------------------------  
 Next get into Mason user with the password(all small letters and no space)  
@@ -259,6 +276,9 @@ curl 'http://locacurl 'http://localhost:8080' -X POST -d 'password=********light
 ```  
 It returned the files of the root directory  
 
+
+![rootbackdoor](https://github.com/Debang5hu/ctf-writeups/assets/114200360/46750593-0300-4a0f-8a46-04071aa74afc)  
+
 Next,what if we use 'passwd' as cmdtype  
 
 It says that Root's password is changed to mason's password  
@@ -270,7 +290,9 @@ and boom we are ROOT!
 
 cat the  /root/r00t.txt to get the final flag!  
 
+![root](https://github.com/Debang5hu/ctf-writeups/assets/114200360/573e1b72-6ec9-43ee-bcaa-2568a24a6d5e)  
 
+------------------------------  
 # ANSWER:  
 --------  
 
