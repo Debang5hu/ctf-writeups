@@ -116,7 +116,7 @@ Get the exploit to the current directory by
 searchsploit -m php/webapps/49876.py
 ```  
 
-Now run the exploit to get the shell and find the username and password from /home and /var/www/html/wordpress/php-config.php  file  
+Now run the exploit to get the shell and find the username and password from /home and /var/www/html/wordpress/wp-config.php  file  
 
 After getting the Credentials SSH into the machine  
 
