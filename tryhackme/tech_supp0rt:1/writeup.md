@@ -1,6 +1,9 @@
+![thumbnail](https://github.com/Debang5hu/ctf-writeups/assets/114200360/ad8c0a90-7994-4743-8af1-4612f8f21906)  
+
 Machine: https://tryhackme.com/room/techsupp0rt1  
 
 OS: Ubuntu (Linux)  
+
 WEB TECHNOLOGY:  Wordpress(5.7.2),Subrion,Mysql,php
 
 As usual start by exporting the IP to local variable  
@@ -73,6 +76,8 @@ Nothing Interesting Directory were found
 ------------------------------------------------------------------------------------------------
 
 SMB (139,445):  
+
+![Screenshot_2023-12-26_15_27_28](https://github.com/Debang5hu/ctf-writeups/assets/114200360/89026d90-6262-4165-8d8b-8d5c5026f1df)  
 
 ```
 smbmap -H $IP
